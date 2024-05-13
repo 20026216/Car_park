@@ -11,3 +11,7 @@
 ![image](https://github.com/20026216/Car_park/assets/160699687/335040f9-aeb3-4a4c-8754-d7e1aab5aa44)
 ![image](https://github.com/20026216/Car_park/assets/160699687/5ead19e2-08d8-4dd6-875e-4271e5d557d2)
 
+
+## Added constructors and attributes to classes
+
+![img_1.png](img_1.png)
