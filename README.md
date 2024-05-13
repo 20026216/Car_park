@@ -15,3 +15,8 @@
 ## Added constructors and attributes to classes
 
 ![img_1.png](img_1.png)
+
+
+## Added methods 
+
+![Added methods in car_park class](img_3.png)
