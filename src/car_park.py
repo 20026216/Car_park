@@ -18,7 +18,7 @@ class CarPark: ## pascal case good for identifying classes
 
     @property      ## makes this behave as an attribute
     def available_bays(self):  ## changed from get_available_bays, for testing
-        return max(0, self.capacity - len(self.plates))  # changed so it doesn't return negatives
+        return max(0, self.capacity - len(self.plates))  # changed so it doesn't return negatives when overfilling the car park
     def __str__(self):         ## makes it better to represent the instance
         return f"Car Park location = {self.location} capacity = {self.capacity}. "
 
