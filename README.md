@@ -50,5 +50,11 @@ https://www.geeksforgeeks.org/accessing-attributes-methods-python/
 ```
 ### Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.
 ```
-Answer here...
+- We used a dictionary as so you don't have to update the method everytime you want to,
+  display a new set of values(eg. you want to implement weather forecasts into it, the
+  approach we did makes it so you can just add it into the update_displays only, basically
+  less things to update everytime you implement a new feature).
+- A disadvantage would be since the dictionaries are mutable, this function can lead
+  to unexpected changes when changing both methods.
+  
 ```
