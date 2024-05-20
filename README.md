@@ -58,3 +58,7 @@ https://www.geeksforgeeks.org/accessing-attributes-methods-python/
   to unexpected changes when changing both methods.
   
 ```
+
+## Added sensor detection
+
+![Sensor class changes](img_6.png)

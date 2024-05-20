@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod  ## decorator, like property,
-import random
+import random #
+# automatically did this when implementing abstract method? works either way
 class Sensor(ABC):
     def __init__(self,
                  id,
@@ -31,7 +32,7 @@ class EntrySensor(Sensor):
 
 class ExitSensor(Sensor):
     def _scan_plate(self):
-        #placeholder for exit scanning
+        # placeholder for exit scanning
         return random.choice(self.car_park.plates)
     def update_car_park(self, plate):
         self.car_park.remove_car(plate)
