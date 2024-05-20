@@ -17,8 +17,8 @@ class CarPark: ## pascal case good for identifying classes
 
 
     @property      ## makes this behave as an attribute
-    def get_available_bays(self):
-        return self.capacity - len(self.plates)
+    def available_bays(self):  ## changed from get_available_bays, for testing
+        return max(0, self.capacity - len(self.plates))  # changed so it doesn't return negatives
     def __str__(self):         ## makes it better to represent the instance
         return f"Car Park location = {self.location} capacity = {self.capacity}. "
 
@@ -44,6 +44,6 @@ class CarPark: ## pascal case good for identifying classes
 
     def update_display(self):
         for display in self.displays:
-            display.update({"Bays" : self.get_available_bays,
+            display.update({"Bays" : self.available_bays,
             "Temperature": 42})
             print(f"Updating: {display}")

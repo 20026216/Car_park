@@ -62,3 +62,16 @@ https://www.geeksforgeeks.org/accessing-attributes-methods-python/
 ## Added sensor detection
 
 ![Sensor class changes](img_6.png)
+
+## Unit Tests
+
+![AttributeError](img_7.png)
+```
+Fixed by changing the atttribute back to available bays
+```
+
+![AssertionError](img_8.png)
+```
+After changing the attribution, it came back with assertion, which is fixed by adding:
+```
+![Assertion Error Fix](img_9.png)
