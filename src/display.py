@@ -13,8 +13,7 @@ class Display:
     def update(self, data):
         for key, value in data.items():
             print(f"{key}:{value}")
-        self.message = "Goodbye" ## may need to elaborate this
-        ## may need to get to the end of the dictionary, then it will '=' goodbye.
+        self.message = "Goodbye" ## when the loop ends, it changes the message to goodbye
     def __str__(self):
         return f"Display {self.id}: {self.message}"
 

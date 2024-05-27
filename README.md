@@ -75,3 +75,16 @@ Fixed by changing the atttribute back to available bays
 After changing the attribution, it came back with assertion, which is fixed by adding:
 ```
 ![Assertion Error Fix](img_9.png)
+
+## TestDisplay
+
+![UpdateMessaging](img_10.png)
+```
+After using the update display method, it should have message : Goodbye
+```
+![UpdateDisplayClass](img_11.png)
+![TestUpdateDisplay](img_12.png)
+![TestPass](img_13.png)
+```
+By returning the message : Goodbye, in the end of the loop, it fixes the issue.
+```
