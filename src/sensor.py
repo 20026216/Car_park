@@ -12,15 +12,16 @@ class Sensor(ABC):
         self.is_active = is_active
 
     def _scan_plate(self):
-        return "FAKE" + format(random.randint(0,999), '03d')
+        return "FAKE-" + format(random.randint(0,999), '03d')
 
     @abstractmethod  ## everyone inheriting this will need to implement it
     def update_car_park(self, plate):
         pass
 
     def detect_vehicle(self):
-        plate =self._scan_plate()
-        self.update_car_park()
+        plate = self._scan_plate()
+        self.update_car_park(plate)
+        return plate
 
     def __str__(self):
         return f'Sensor{self.id} : {"is on" if self.is_active else "is off"}'
