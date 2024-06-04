@@ -15,24 +15,3 @@ class TestSensor(unittest.TestCase):
 
     def test_detect_vehicle(self):
         self.assertIn('FAKE-',self.EntrySensor.detect_vehicle())
-
-"""
-class TestExitSensor(unittest.TestCase):
-    def setUp(self):
-        self.CarPark = CarPark("222 Holland", 100)
-        self.CarPark.plates = ["FAKE001", "FAKE002", "FAKE003"]
-        self.ExitSensor = ExitSensor(2, CarPark("222 Holland", 100), True)
-
-    def test_ExitSensor_initialized_with_all_attributes(self):
-        self.assertIsInstance(self.ExitSensor, Sensor)
-        self.assertEqual(self.ExitSensor.id, 2)
-        self.assertIsInstance(self.ExitSensor.car_park, CarPark)
-        self.assertEqual(self.ExitSensor.is_active, True)
-
-    def test_detect_vehicle(self):
-        self.CarPark.remove_car("FAKE001")
-        self.ExitSensor.update_car_park(self.ExitSensor._scan_plate())
-        self.ExitSensor.detect_vehicle()
-        self.assertEqual(CarPark.plates.contains("FAKE001"), False)
-
-"""

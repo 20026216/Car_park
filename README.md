@@ -88,3 +88,11 @@ After using the update display method, it should have message : Goodbye
 ```
 By returning the message : Goodbye, in the end of the loop, it fixes the issue.
 ```
+## TestSensor and TestRegister
+![AddedDetectVehicleImplementation](img_14.png)
+![TestingDetectVehicleAndInit](img_15.png)
+```
+Testing the Car park register method is better to test in the CarPark unit test as you also need to test if it 
+raises a type error on the display.
+```
+![TestTypeError](img_16.png)
