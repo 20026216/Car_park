@@ -59,17 +59,23 @@ class CarPark:   ## pascal case good for identifying classes
     def register(self, component): ## better written with exeptions first
         if not isinstance(component, (Sensor, Display)):
             raise TypeError(f"Invalid component type!!!")
+        if isinstance(component, Sensor):
+            self.sensors.append(component)
+        elif isinstance(component, Display):
+            self.displays.append(component)
 
     def _log_car(self, action, plate):
         with self.log_file.open(mode="a") as file:  ## Opening with pathlib
-            file.write(f'{plate}: {action} on the {datetime.now().strftime("%d-%m %H:%M")}')
+            file.write(f'{plate} {action} on the {datetime.now().strftime("%d-%m %H:%M")}\n')
 
     def add_car(self, plate):
         self.plates.append(plate)
+        self.update_display()
         self._log_car('entered', plate)
 
     def remove_car(self, plate):
         self.plates.remove(plate)
+        self.update_display()
         self._log_car('exited', plate)
 
     def update_display(self):

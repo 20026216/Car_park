@@ -45,6 +45,9 @@ class TestCarPark(unittest.TestCase):
             self.assertIn("New-01", last_write)
             self.assertIn("exited", last_write)
 
+    def tearDown(self):
+        Path("log.txt").unlink(missing_ok=True)
+
     def test_overfill_the_car_park(self):
         for i in range(100):
             self.car_park.add_car(f"FAKE-{i}")
