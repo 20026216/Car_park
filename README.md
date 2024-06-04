@@ -96,3 +96,8 @@ Testing the Car park register method is better to test in the CarPark unit test 
 raises a type error on the display.
 ```
 ![TestTypeError](img_16.png)
+
+## Logging Methods and Testing
+![Part1](img_18.png)
+![Part2](img_19.png)
+![Testing](img_20.png)
