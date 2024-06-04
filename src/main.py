@@ -1,28 +1,26 @@
 from car_park import CarPark
 from sensor import EntrySensor, ExitSensor
 from display import Display
-def main():
-    car_park = CarPark("Moondalup", 100, "Moondalup.txt")
-    entry_sensor = EntrySensor(1, CarPark(car_park), True)
-    exit_sensor = ExitSensor(2, CarPark(car_park), True)
-    display = Display(1, CarPark(car_park), "Welcome to Moondalup", True)
+import random
 
-    car_park.register(entry_sensor)
-    car_park.register(exit_sensor)
-    car_park.register(display)
+car_park = CarPark("Moondalup", 100, "Moondalup.txt")
+entry_sensor = EntrySensor(1, CarPark(car_park), True)
+exit_sensor = ExitSensor(2, CarPark(car_park), True)
+display = Display(1, CarPark(car_park), "Welcome to Moondalup", True)
 
-    print(car_park)
+car_park.register(entry_sensor)
+car_park.register(exit_sensor)
+car_park.register(display)
 
-    for i in range(10):
-        entry_sensor.detect_vehicle()
+for i in range(10):
+    entry_sensor.detect_vehicle()
 
+print(car_park.plates)
 
-    print(car_park)
-    for i in range(2):
-        exit_sensor.detect_vehicle()
+for i in range(2):
+    exit_sensor.detect_vehicle() ## THIS SHOULD WORK I DONT KNOW WHY
 
-    print(car_park)
+car_park.to_json()
+print("Car park state saved to config.json")
 
-
-if __name__ == "__main__":
-    main()
+    # Load car park state from JSON

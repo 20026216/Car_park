@@ -2,6 +2,7 @@ from sensor import Sensor
 from display import Display
 from pathlib import Path
 from datetime import datetime
+import random
 import json
 class CarPark:   ## pascal case good for identifying classes
     def __init__(self,
@@ -21,8 +22,8 @@ class CarPark:   ## pascal case good for identifying classes
         if not self.log_file.exists():
             self.log_file.touch()  ## makes log file if it doesn't exist
 
-    def to_json(self, filename):
-        with open(filename, 'w') as file:
+    def to_json(self):
+        with open("config.json", 'w') as file:
             json.dump({"location": self.location,
                        "capacity": self.capacity,
                        "log_file": str(self.log_file)}, file)
@@ -36,7 +37,9 @@ class CarPark:   ## pascal case good for identifying classes
                            capacity=int(conf["capacity"]),
                            log_file=conf["log_file"])
 
-
+    def _log_car(self, action, plate):
+        with self.log_file.open(mode="a") as file:  ## Opening with pathlib
+            file.write(f'{plate} {action} on the {datetime.now().strftime("%d-%m %H:%M")}\n')
 
 
     @property      ## makes this behave as an attribute
@@ -64,9 +67,7 @@ class CarPark:   ## pascal case good for identifying classes
         elif isinstance(component, Display):
             self.displays.append(component)
 
-    def _log_car(self, action, plate):
-        with self.log_file.open(mode="a") as file:  ## Opening with pathlib
-            file.write(f'{plate} {action} on the {datetime.now().strftime("%d-%m %H:%M")}\n')
+
 
     def add_car(self, plate):
         self.plates.append(plate)
