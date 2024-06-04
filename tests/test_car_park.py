@@ -2,6 +2,7 @@ import unittest
 from car_park import CarPark
 from sensor import Sensor, EntrySensor
 from src.display import Display
+from pathlib import Path
 
 
 class TestCarPark(unittest.TestCase):
@@ -16,6 +17,7 @@ class TestCarPark(unittest.TestCase):
         self.assertEqual(self.car_park.sensors, [])
         self.assertEqual(self.car_park.displays, [])
         self.assertEqual(self.car_park.available_bays, 100)
+        self.assertEqual(self.car_park.log_file, Path("log.txt"))
 
     def test_add_car(self):
         self.car_park.add_car("FAKE-001")
@@ -27,6 +29,21 @@ class TestCarPark(unittest.TestCase):
         self.car_park.remove_car("FAKE-001")
         self.assertEqual(self.car_park.plates, [])
         self.assertEqual(self.car_park.available_bays, 100)
+
+    def test_logging_of_entering_cars(self):
+        self.car_park.add_car("New-01")
+        with self.car_park.log_file.open("r") as file:
+            last_write= file.readlines()[-1]
+            self.assertIn("New-01", last_write)
+            self.assertIn("entered", last_write)
+
+    def test_logging_of_exiting_cars(self):
+        self.car_park.add_car("New-01")
+        self.car_park.remove_car("New-01")
+        with self.car_park.log_file.open("r") as file:
+            last_write= file.readlines()[-1]
+            self.assertIn("New-01", last_write)
+            self.assertIn("exited", last_write)
 
     def test_overfill_the_car_park(self):
         for i in range(100):
