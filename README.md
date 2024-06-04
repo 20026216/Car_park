@@ -108,3 +108,7 @@ raises a type error on the display.
 ![Part2](img_22.png)
 ![Part3](img_23.png)
 ![Part4](img_24.png)
+
+## Release
+![CreateRelease](img_25.png)
+![PublishRelease](img_26.png)
