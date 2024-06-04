@@ -10,12 +10,15 @@ class Display:
         self.message = message
         self.is_on = is_on
 
-    def update(self, data):
+
+    def update(self, data, source='exit'): ## default set to exit for the unit test
         for key, value in data.items():
             print(f"{key}:{value}")
-        self.message = "Goodbye" ## when the loop ends, it changes the message to goodbye
+        if source == 'exit':
+            self.message = "Goodbye"
+        elif source == 'entry':
+            return self.message
+
+
     def __str__(self):
         return f"Display {self.id}: {self.message}"
-
-
-

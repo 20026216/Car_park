@@ -20,8 +20,7 @@ class Sensor(ABC):
 
     def detect_vehicle(self):
         plate = self._scan_plate()
-        if plate:
-            self.update_car_park(plate)
+        self.update_car_park(plate)
         return plate
 
     def __str__(self):
@@ -31,6 +30,7 @@ class Sensor(ABC):
 class EntrySensor(Sensor):
     def update_car_park(self, plate):
         self.car_park.add_car(plate)
+        self.car_park.update_display('entry')
         print(f"Incoming vehicle, Plate:{plate}")
 
 
@@ -40,4 +40,5 @@ class ExitSensor(Sensor):
 
     def update_car_park(self, plate):
         self.car_park.remove_car(plate)
+        self.car_park.update_display('exit')
         print(f"Outgoing vehicle, Plate: {plate}")

@@ -71,16 +71,14 @@ class CarPark:   ## pascal case good for identifying classes
 
     def add_car(self, plate):
         self.plates.append(plate)
-        self.update_display()
         self._log_car('entered', plate)
 
     def remove_car(self, plate):
         self.plates.remove(plate)
-        self.update_display()
         self._log_car('exited', plate)
 
-    def update_display(self):
+    def update_display(self, source=None):
         for display in self.displays:
             display.update({"Bays" : self.available_bays,
-            "Temperature": 42})
+            "Temperature": 42}, source)
             print(f"Updating: {display}")

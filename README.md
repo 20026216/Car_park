@@ -101,3 +101,10 @@ raises a type error on the display.
 ![Part1](img_18.png)
 ![Part2](img_19.png)
 ![Testing](img_20.png)
+
+## Main.py
+
+![OutputsPart1](img_21.png)
+![Part2](img_22.png)
+![Part3](img_23.png)
+![Part4](img_24.png)
