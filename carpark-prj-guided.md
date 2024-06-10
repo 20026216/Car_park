@@ -67,16 +67,16 @@ Include a screenshot of your GitHub repository **after** you have pushed your in
 ```markdown
 ![Initial commit](images/mu_image.png)
 ```
-
+![initial_commit_pic](img_4.png)
 ### Identify classes, methods, and attributes
 
 After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
-| Class Name | Attributes | Methods |
-| ---------- | ---------- | ------- |
-| `CarPark`    |            |         |
-| `Sensor`     |            |         |
-| `Display`    |            |         |
+| Class Name | Attributes                                                                          | Methods                                                               |
+| ---------- |-------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| `CarPark`    | location<br/> capacity<br/> plates <br/> sensors <br/> displays<br/> available bays | register components<br/> add car<br/> remove car <br/> update displays |
+| `Sensor`     | id<br/> is_active<br/> car_park                                                     | scan plate<br/> detect vehicle<br/> update carpark                    |
+| `Display`    | id<br/> message <br/> is_on <br/> car_park                                          | update                                                                |
 
 **Evidencing:**
 Ensure you have completed the previous table and include at least two methods and attributes for each.
@@ -107,7 +107,8 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
 ```markdown
 ![Added stubs for classes](images/stubs-for-classes.png)
 ```
-
+![pic of stubs in git](img.png)
+![pic of stubs in code](img_5.png)
 ### Add constructors and attributes to the classes
 
 #### CarPark class
@@ -210,8 +211,10 @@ Ensure that you have completed the previous steps and created the appropriate ta
 [student@workstation ipriot-car-park-prj]$ git tag
 s1
 s2
+
 ```
 
+![tags for constructors](img_1.png)
 ### Relate the classes
 
 Let's consider how the classes relate to each other. We can start by using a sequence diagram to illustrate class interactions. A sequence diagram shows the interactions between objects in a sequential order. The following diagram shows the interactions between the `CarPark`, `Sensor`, and `Display` classes.
@@ -340,7 +343,7 @@ After you have implemented the required code, commit your changes to the local r
    git commit -m "Added a register method to the car park class"
    git tag -a "s3" -m "Added a register method to the car park class"
    ```
-
+![register_tag](img_27.png)
 #### Add and remove car methods
 
 When a car enters the car park, we record its plate number and update the displays. When a car exits the car park, we remove its plate number and update the displays. We can implement these behaviours in the `add_car` and `remove_car` methods.
@@ -369,11 +372,21 @@ You may want to see the number of available bays, the current temperature, and t
 Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
 
 >Q. Which class is responsible for the number of available bays (and why)?
->
+- As the CarPark class has the method of get_available_bays, i think this class is
+  responsible for the number of available bays, as this was marked as a property
+  of this class, which makes it work as an attribute of the Carpark class.
+
 >Q. Which class is responsible for the current temperature (and why)?
->
+- Even if the current implementation is hard coded into the Carpark class right now,
+  the Sensor Class I think will be responsible for this in the end, as it doesn't 
+  really make sense for the CarPark class to be solely responsible for this. When the
+  sensor class is expanded upon, this will be inherited from the sensor class, into the
+  classes that may need it (like the CarPark and Display).
+
 >Q. Which class is responsible for the time (and why)?
->
+- The time class can be imported from the in built module of python, the time class itself
+  could be imported from there. But in terms of what will be responsible for this mostly,
+  the CarPark class could use this when updating the displays function is used.
 --------
 
 ##### Detour: implement available bays
