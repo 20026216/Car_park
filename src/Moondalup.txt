@@ -326,3 +326,15 @@ FAKE-049 entered on the 10-06 11:48
 FAKE-537 entered on the 10-06 11:48
 FAKE-537 exited on the 10-06 11:48
 FAKE-294 exited on the 10-06 11:48
+FAKE-568 entered on the 10-06 12:04
+FAKE-145 entered on the 10-06 12:04
+FAKE-295 entered on the 10-06 12:04
+FAKE-938 entered on the 10-06 12:04
+FAKE-288 entered on the 10-06 12:04
+FAKE-282 entered on the 10-06 12:04
+FAKE-863 entered on the 10-06 12:04
+FAKE-699 entered on the 10-06 12:04
+FAKE-306 entered on the 10-06 12:04
+FAKE-464 entered on the 10-06 12:04
+FAKE-145 exited on the 10-06 12:04
+FAKE-938 exited on the 10-06 12:04
