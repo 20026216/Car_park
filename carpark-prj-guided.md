@@ -1040,7 +1040,8 @@ Let's now implement the functionality to make the unit tests pass (if you have w
       with self.log_file.open("a") as f:
          f.write(f"{plate} {action} at {datetime.now()}\n")
    ```
-
+![branch](img_35.png)
+![s9](img_36.png)
 #### Store the configuration of a car park in a file called `config.json`
 
 **Detour – JSON:** JavaScript Object Notation (JSON) is a standard format for storing data. It is a text-based format that is easy for humans to read and write. It is also easy for computers to parse and generate. JSON is often used for storing configuration data (though `yaml` and `toml` are increasingly popular). It is also a standard format for exchanging data between applications. Like most high-level languages, Python has built-in support for JSON.
@@ -1102,7 +1103,10 @@ After you have merged your branch to main, push to your remote with the s10 tag.
 ```markdown
 ![Added methods to the car park class](images/methods-to-car-park.png)
 ```
-
+![s10](img_37.png)
+![Part1](img_18.png)
+![Part2](img_19.png)
+![Testing](img_20.png)
 ### Final step: build a car park!
 
 In the final step, you will create a `main.py` file that 'drives' a car park. This file will create a car park, add sensors and displays, and simulate cars entering and exiting the car park. You will then run the file to see the car park in action.
@@ -1139,7 +1143,10 @@ In your final submission, you must include any files you created or modified. Th
    ```markdown
    ![Main.py output](images/main-py.png)
    ```
-
+![OutputsPart1](img_21.png)
+![Part2](img_22.png)
+![Part3](img_23.png)
+![Part4](img_24.png)
 2. Commit your changes to the local repository. Tag the commit with `v1`, so your lecturer can find it. Ensure the commit includes the log and config files (though you would typically ignore them).
 3. Push the tag to the remote repository.
 
@@ -1154,6 +1161,8 @@ In your final submission, you must include any files you created or modified. Th
 
    ![Publish a release](images/publish-release.png)
    ```
+![CreateRelease](img_25.png)
+![PublishRelease](img_26.png)
 
 5. Congratulations! You have completed the project. You can now submit the assignment via Blackboard. Take the time to reflect on your work and write any notes and observations down.
 
