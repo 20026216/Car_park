@@ -448,6 +448,7 @@ After you have implemented the required code, commit your changes to the local r
    git commit -m "Added methods to the car park class"
    git tag -a "s4" -m "Added methods to the car park class"
    ```
+![car_park_methods_tag](img_34.png)
 
 This time, we will push the tag to the remote repository:
 
@@ -476,17 +477,19 @@ Answer the following questions:
   sensor class is expanded upon, this will be inherited from the sensor class, into the
   classes that may need it (like the CarPark and Display).
 >    - _The time_  
->- The time class can be imported from the in built module of python, the time class itself
-  could be imported from there. But in terms of what will be responsible for this mostly,
-  the CarPark class could use this when updating the displays function is used.
+>- The CarPark class would be responsible for this when updating the displays function is used (you could display the time
+when the cars come in and exit)
 >
 > 2. **What is the difference between an attribute and a property?**  
 >- An attribute is a variable that defines what a class is made out of. 
 >https://www.geeksforgeeks.org/accessing-attributes-methods-python/ 
->- A property is a method that acts as an attribute. 
+>- A property is a method that behaves as an attribute. 
   This is used for the get_available_bays, where it doesn't really work as a method
-  by itself, or an attribute by itself. Making it a property allows for better
-  identification of what it does (removes ambiguity).
+  by itself, or an attribute by itself.
+>- The difference is that the property is a derived value of an attribute/s. As the example in the car park class, the available bays is a derived value of capacity, and the amount of plates 
+> currently in the car park.
+>
+>
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**  
 >- We used a dictionary as so you don't have to update the method everytime you want to,
   display a new set of values(eg. you want to implement weather forecasts into it, the
@@ -856,6 +859,9 @@ with self.assertRaises(TypeError):
 Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.
 ![AddedDetectVehicleImplementation](img_14.png)
 ![TestingDetectVehicleAndInit](img_15.png)
+
+```Committed this exit sensor after```
+
 ![ImplementationForExitSensor](img_32.png)
 ![S8Tag](img_33.png)
 ### Additional functionality: TDD
