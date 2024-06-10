@@ -91,6 +91,7 @@ By returning the message : Goodbye, in the end of the loop, it fixes the issue.
 ## TestSensor and TestRegister
 ![AddedDetectVehicleImplementation](img_14.png)
 ![TestingDetectVehicleAndInit](img_15.png)
+![ImplementationForExitSensor](img_32.png)
 ```
 Testing the Car park register method is better to test in the CarPark unit test as you also need to test if it 
 raises a type error on the display.

@@ -11,7 +11,7 @@ class Display:
         self.is_on = is_on
 
 
-    def update(self, data, car_incoming=False): ## default set to exit for the unit test
+    def update(self, data, car_incoming=False): ## default set to false for the unit test
         for key, value in data.items():
             print(f"{key}:{value}")
         if car_incoming == False :

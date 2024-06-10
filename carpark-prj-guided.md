@@ -72,11 +72,11 @@ Include a screenshot of your GitHub repository **after** you have pushed your in
 
 After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
-| Class Name | Attributes                                                                          | Methods                                                               |
-| ---------- |-------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| `CarPark`    | location<br/> capacity<br/> plates <br/> sensors <br/> displays<br/> available bays | register components<br/> add car<br/> remove car <br/> update displays |
-| `Sensor`     | id<br/> is_active<br/> car_park                                                     | scan plate<br/> detect vehicle<br/> update carpark                    |
-| `Display`    | id<br/> message <br/> is_on <br/> car_park                                          | update                                                                |
+| Class Name | Attributes                                                                          | Methods                                                                          |
+| ---------- |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `CarPark`    | location<br/> capacity<br/> plates <br/> sensors <br/> displays<br/> available bays | init<br/> register components<br/> add car<br/> remove car <br/> update displays |
+| `Sensor`     | id<br/> is_active<br/> car_park                                                   | init <br/> scan plate<br/> detect vehicle<br/> update carpark                    |
+| `Display`    | id<br/> message <br/> is_on <br/> car_park                                          | init <br/> update                                                                     |
 
 **Evidencing:**
 Ensure you have completed the previous table and include at least two methods and attributes for each.
@@ -466,17 +466,34 @@ Answer the following questions:
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - _The number of available bays_  
->      `Answer here...`
+>- As the CarPark class has the method of get_available_bays, i think this class is
+  responsible for the number of available bays, as this was marked as a property
+  of this class, which makes it work as an attribute of the Carpark class.
 >    - _The current temperature_  
->      `Answer here...`
+>- Even if the current implementation is hard coded into the Carpark class right now,
+  the Sensor Class I think will be responsible for this in the end, as it doesn't 
+  really make sense for the CarPark class to be solely responsible for this. When the
+  sensor class is expanded upon, this will be inherited from the sensor class, into the
+  classes that may need it (like the CarPark and Display).
 >    - _The time_  
->      `Answer here...`
+>- The time class can be imported from the in built module of python, the time class itself
+  could be imported from there. But in terms of what will be responsible for this mostly,
+  the CarPark class could use this when updating the displays function is used.
 >
 > 2. **What is the difference between an attribute and a property?**  
->    `Answer here...`
->
+>- An attribute is a variable that defines what a class is made out of. 
+>https://www.geeksforgeeks.org/accessing-attributes-methods-python/ 
+>- A property is a method that acts as an attribute. 
+  This is used for the get_available_bays, where it doesn't really work as a method
+  by itself, or an attribute by itself. Making it a property allows for better
+  identification of what it does (removes ambiguity).
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**  
->    `Answer here...`
+>- We used a dictionary as so you don't have to update the method everytime you want to,
+  display a new set of values(eg. you want to implement weather forecasts into it, the
+  approach we did makes it so you can just add it into the update_displays only, basically
+  less things to update everytime you implement a new feature).
+>- A disadvantage would be since the dictionaries are mutable, this function can lead
+ to unexpected changes when changing both methods.
 
 #### Add a detect vehicle method to the Sensor class
 
@@ -579,6 +596,9 @@ After you have implemented the required code, commit your changes to the local r
    git commit -m "Created core methods for the classes"
    git tag -a "s5" -m "Core methods completed"
    ```
+![core_methods_completed_here](img_28.png)
+
+```Core methods were completed in this tag,  just renamed it as sensors were completed here too```
 
 Probably a good idea to commit to GitHub now:
 
@@ -723,14 +743,22 @@ if __name__ == "__main__":
    ```markdown
    ![Unit tests](images/unit-tests.png)
    ```
-
+![AttributeError](img_7.png)
+```
+Fixed by changing the atttribute back to available bays
+```
+![AssertionError](img_8.png)
+```
+After changing the attribution, it came back with assertion, which is fixed by adding:
+```
+![Assertion Error Fix](img_9.png)
 2. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it:
 3. Push the tag to the remote repository:
 
    ```bash
    git push --tags
    ```
-
+![s6_tag](img_29.png)
 ### Display unit tests
 
 Next, we'll create tests for the `Display` class. These tests will test the `__init__` method and the `update` method.
@@ -782,7 +810,20 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
    ```markdown
    ![Unit tests](images/unit-tests-display.png)
    ```
+![UpdateMessaging](img_10.png)
+```
+After using the update display method, it should have message : Goodbye
+```
+![UpdateDisplayClass](img_11.png)
+![TestUpdateDisplay](img_12.png)
+![TestPass](img_13.png)
 
+### Better Implementation
+
+![Better_method](img_31.png)
+```
+By returning the message : Goodbye, in the end of the loop, it fixes the issue.
+```
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
 
@@ -813,7 +854,10 @@ with self.assertRaises(TypeError):
 **Evidencing:**
 
 Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.
-
+![AddedDetectVehicleImplementation](img_14.png)
+![TestingDetectVehicleAndInit](img_15.png)
+![ImplementationForExitSensor](img_32.png)
+![S8Tag](img_33.png)
 ### Additional functionality: TDD
 
 You have been asked to implement the following additional functionality:
