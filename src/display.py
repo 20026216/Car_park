@@ -11,12 +11,12 @@ class Display:
         self.is_on = is_on
 
 
-    def update(self, data, source='exit'): ## default set to exit for the unit test
+    def update(self, data, car_incoming=False): ## default set to exit for the unit test
         for key, value in data.items():
             print(f"{key}:{value}")
-        if source == 'exit':
+        if car_incoming == False :
             self.message = "Goodbye"
-        elif source == 'entry':
+        elif car_incoming == True :
             return self.message
 
 

@@ -27,10 +27,10 @@ class Sensor(ABC):
         return f'Sensor{self.id} : {"is on" if self.is_active else "is off"}'
 
 
-class EntrySensor(Sensor):
+class EntrySensor(Sensor): ## added checks for the display to show the welcome message and goodbye message
     def update_car_park(self, plate):
         self.car_park.add_car(plate)
-        self.car_park.update_display('entry')
+        self.car_park.update_display(True)
         print(f"Incoming vehicle, Plate:{plate}")
 
 
@@ -40,5 +40,5 @@ class ExitSensor(Sensor):
 
     def update_car_park(self, plate):
         self.car_park.remove_car(plate)
-        self.car_park.update_display('exit')
+        self.car_park.update_display(False)
         print(f"Outgoing vehicle, Plate: {plate}")
