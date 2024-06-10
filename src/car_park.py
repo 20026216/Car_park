@@ -1,8 +1,7 @@
 from sensor import Sensor
 from display import Display
 from pathlib import Path
-from datetime import datetime
-import random
+from datetime import datetime #git branch test
 import json
 class CarPark:   ## pascal case good for identifying classes
     def __init__(self,
